@@ -156,7 +156,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <iframe src="./static/pdfs/deformation.pdf" style="width:100%; height:600px; border:none;"></iframe>
+      <img src="./static/images/deformation.jpg" alt="Deformation Analysis" style="width:100%; height:auto;">
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">FLAG-4D</span> achieves high-fidelity and temporally coherent 4D reconstruction by employing a dual-deformation network guided by dense optical flow.
       </h2>
@@ -190,7 +190,7 @@
     <h2 class="title is-3 has-text-centered">Framework</h2>
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <iframe src="./static/pdfs/framework.pdf" style="width:100%; height:600px; border:none;"></iframe>
+        <img src="./static/images/bfd.jpg" alt="Framework" style="width:100%; height:auto;">
         <div class="content has-text-justified">
           <p>
             <strong>Figure 2: FLAG-4D Methodology:</strong> Our dual-deformation framework for 4D reconstruction. <strong>Top:</strong> The overall pipeline: A monocular video sequence is used to generate an initial SfM point cloud, from which a canonical set of 3D Gaussians at t=0 is derived. The Dual-Deformation Network consists of an Instantaneous Deformation Network (IDN) and a Global Motion Network (GMN), which are trained synergistically via Mutual Learning. <strong>Bottom Left:</strong> The IDN processes the canonical Gaussians and a window of future-oriented time embeddings to produce a hypothesized local deformation. <strong>Bottom Right:</strong> The GMN integrates this local deformation hypothesis (as Query) with fused optical flow embeddings (as Key/Value) via a cross-attention mechanism, producing the final globally consistent deformation.
@@ -224,8 +224,6 @@
           </video>
         </div>
       </div>
-    </div>
-    <div class="columns is-centered">
       <div class="column">
         <div class="content">
           <h4 class="title is-5">DeformableGS</h4>
@@ -264,8 +262,6 @@
           </video>
         </div>
       </div>
-    </div>
-    <div class="columns is-centered">
       <div class="column">
         <div class="content">
           <h4 class="title is-5">DeformableGS</h4>
@@ -289,17 +285,15 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">NeRF-DS Dynamic Dataset Comparison</h2>
+    <h2 class="title is-3">NeRF-DS Dataset</h2>
     
     <div class="columns is-centered">
       <div class="column is-full-width">
         <img src="./static/images/nerfds_comparison.png" alt="NeRF-DS Qualitative Comparison" style="width:100%; height:auto;">
         <div class="content has-text-justified">
           <p>
-            <strong>Figure 4: Qualitative comparisons between baseline methods and our approach on the NeRF-DS real-world dataset.</strong>
-            Results show that our method delivers superior rendering quality in the case of complex scene dynamics. Our method is capable
-            to capture finer details, preserve complex structure, handling the dynamic scene elements more effectively than baseline methods
-            such as SC-GS(Huang et al. 2024), D-MiSo(Waczyńska et al. 2024), and 4DGS(Wu et al. 2024).
+            <strong>Figure 4: Qualitative comparisons on NeRF-DS dataset.</strong>
+            Our method captures finer details and preserves complex structures better than baselines like SC-GS, D-MiSo, and 4DGS.
           </p>
         </div>
       </div>
@@ -325,7 +319,7 @@
     <h2 class="title is-3">Ablation Studies</h2>
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <iframe src="./static/pdfs/ablation.pdf" style="width:100%; height:800px; border:none;"></iframe>
+        <img src="./static/images/ablation.jpg" alt="Ablation Studies" style="width:100%; height:auto;">
         <div class="content has-text-justified">
           <p>
             Detailed ablation studies demonstrating the effectiveness of our dual-deformation network and flow-guided attention mechanism.
