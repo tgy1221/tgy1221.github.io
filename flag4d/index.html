@@ -156,11 +156,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video> -->
-      <img src="./static/images/teaser.png" alt="Teaser image" style="width:100%; height:auto;">
+      <iframe src="./static/pdfs/deformation.pdf" style="width:100%; height:600px; border:none;"></iframe>
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">FLAG-4D</span> achieves high-fidelity and temporally coherent 4D reconstruction by employing a dual-deformation network guided by dense optical flow.
       </h2>
@@ -190,59 +186,153 @@
     </div>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <br>
+    <h2 class="title is-3 has-text-centered">Framework</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <iframe src="./static/pdfs/framework.pdf" style="width:100%; height:600px; border:none;"></iframe>
+        <div class="content has-text-justified">
+          <p>
+            <strong>Figure 2: FLAG-4D Methodology:</strong> Our dual-deformation framework for 4D reconstruction. <strong>Top:</strong> The overall pipeline: A monocular video sequence is used to generate an initial SfM point cloud, from which a canonical set of 3D Gaussians at t=0 is derived. The Dual-Deformation Network consists of an Instantaneous Deformation Network (IDN) and a Global Motion Network (GMN), which are trained synergistically via Mutual Learning. <strong>Bottom Left:</strong> The IDN processes the canonical Gaussians and a window of future-oriented time embeddings to produce a hypothesized local deformation. <strong>Bottom Right:</strong> The GMN integrates this local deformation hypothesis (as Query) with fused optical flow embeddings (as Key/Value) via a cross-attention mechanism, producing the final globally consistent deformation.
+          </p>
         </div>
       </div>
-    </div> -->
-    <!--/ Paper video. -->
+    </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container is-max-desktop">
 
+    <h2 class="title is-3">Qualitative Comparisons</h2>
+    
+    <h3 class="title is-4">Scene: 3D Printer</h3>
     <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>FLAG-4D</i>, you can create high-fidelity novel views of dynamic scenes.
-          </p>
-          <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video> -->
+          <h4 class="title is-5">Ours</h4>
+          <video id="ours-3dprinter" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/Ours/Ours_3dprinter/left.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring the background.
-            </p>
-            <!-- <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video> -->
-          </div>
-
+        <div class="content">
+          <h4 class="title is-5">SC-GS</h4>
+          <video id="scgs-3dprinter" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/sc-gs/sc-gs_3dprinter/left.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-5">DeformableGS</h4>
+          <video id="deformablegs-3dprinter" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/deformableGS/deformablegs_3dprinter/left.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-5">D-MiSo</h4>
+          <video id="dmiso-3dprinter" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/d-miso/dmiso_3dprinter/left.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <h3 class="title is-4">Scene: Chicken</h3>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-5">Ours</h4>
+          <video id="ours-chicken" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/Ours/Ours_chicken/left.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-5">SC-GS</h4>
+          <video id="scgs-chicken" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/sc-gs/sc-gs_chicken/left.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-5">DeformableGS</h4>
+          <video id="deformablegs-chicken" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/deformableGS/deformablegs_chicken/left.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-5">D-MiSo</h4>
+          <video id="dmiso-chicken" autoplay controls muted loop playsinline width="100%">
+            <source src="./Video Results/d-miso/dmiso_chicken/left.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">NeRF-DS Dynamic Dataset Comparison</h2>
+    
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <img src="./static/images/nerfds_comparison.png" alt="NeRF-DS Qualitative Comparison" style="width:100%; height:auto;">
+        <div class="content has-text-justified">
+          <p>
+            <strong>Figure 4: Qualitative comparisons between baseline methods and our approach on the NeRF-DS real-world dataset.</strong>
+            Results show that our method delivers superior rendering quality in the case of complex scene dynamics. Our method is capable
+            to capture finer details, preserve complex structure, handling the dynamic scene elements more effectively than baseline methods
+            such as SC-GS(Huang et al. 2024), D-MiSo(Waczyńska et al. 2024), and 4DGS(Wu et al. 2024).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <img src="./static/images/nerfds-table.png" alt="NeRF-DS Quantitative Comparison" style="width:100%; height:auto;">
+        <div class="content has-text-justified">
+          <p>
+            <strong>Table 1: Quantitative comparison on NeRF-DS (Yan, Li, and Lee 2023) dataset.</strong> Mean performance across all scenes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Ablation Studies</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <iframe src="./static/pdfs/ablation.pdf" style="width:100%; height:800px; border:none;"></iframe>
+        <div class="content has-text-justified">
+          <p>
+            Detailed ablation studies demonstrating the effectiveness of our dual-deformation network and flow-guided attention mechanism.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training">
+  <meta name="keywords" content="LLM, Visual Reasoning, Compositional Reasoning, Zero-shot">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://tgy1221.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://tgy1221.github.io/">
+            Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://tgy1221.github.io/">Guan-Yuan Tan</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Arghya Pal</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Sailaja Rajanala</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Raphaël C.-W. Phan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Chee-Ming Ting</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Monash University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://doi.org/10.1109/APSIPAASC65261.2025.11249019"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/tgy1221/Herald"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <img src="./static/images/teaser.png" alt="Teaser image" style="width:100%; height:auto;"> -->
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Herald</span> enables a coalition of freely-accessible LLMs to collaboratively generate executable Python programs for heterogeneous vision tasks.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Premium large language models (LLMs) such as GPT-4 offer impressive multimodal performance, yet their paywall limits both accessibility and reproducibility. We ask whether a coalition of freely-accessible LLMs—each individually noisy and uncertain—can collectively rival or surpass their premium counterparts when treated as collaborative, on-the-fly programmers.
+          </p>
+          <p>
+            We present Herald, a framework that (i) primes a diverse pool of zero-cost API LLMs with chain-of-thought cues, (ii) harvests their responses as human-readable Python fragments, control-flow branches, and live API calls, and (iii) employs a rank-and-fuse module to assemble the best fragments into a single executable script. The resulting program is executed by an Executor that produces the task output and a fully inspectable reasoning trace.
+          </p>
+          <p>
+            Without any additional training, Herald tackles heterogeneous vision workloads—image editing, semantic tagging, and medical triage—and achieves state-of-the-art or better accuracy on both medical and non-medical benchmarks. By transforming latent model competence into legible artefacts, Herald enables a transparent interaction style that invites user scrutiny, iterative refinement, and accountable auditing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Methodology</h2>
+    <div class="content has-text-justified">
+      <p>
+        Herald operates by orchestrating a coalition of open-source LLMs. It decomposes complex visual tasks into executable Python programs, leveraging the collective intelligence of smaller, freely available models to rival proprietary giants.
+      </p>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+         <div class="content has-text-centered">
+           <!-- <img src="./static/images/method.png" alt="Method Overview" style="width:100%; height:auto;"> -->
+           <p><em>(Placeholder for Method Diagram)</em></p>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results</h2>
+    <div class="content has-text-justified">
+      <p>
+        We demonstrate Herald's capabilities across various domains including image editing, semantic tagging, and medical triage.
+      </p>
+    </div>
+    
+    <h3 class="title is-4">BFD Comparison</h3>
+    <div class="content has-text-justified">
+      <p>
+        Comparison of Herald against baseline methods on the BFD dataset.
+      </p>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-centered">
+          <img src="../images/bfd_apsipa.png" alt="BFD Comparison" style="width:100%; height:auto;">
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-4">Qualitative Results</h3>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-centered">
+          <!-- <img src="./static/images/qualitative_results.png" alt="Qualitative Results" style="width:100%; height:auto;"> -->
+          <p><em>(Placeholder for Qualitative Results)</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Paper</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-centered">
+          <embed src="./static/paper.pdf" type="application/pdf" width="100%" height="800px">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{tan2025herald,
+  author    = {Tan, Guan-Yuan and Pal, Arghya and Rajanala, Sailaja and Phan, Raphaël C.-W. and Ting, Chee-Ming},
+  title     = {Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training},
+  journal   = {APSIPA ASC},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://doi.org/10.1109/APSIPAASC65261.2025.11249019">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/tgy1221/Herald" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
