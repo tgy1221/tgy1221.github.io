@@ -163,8 +163,7 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
          <div class="content has-text-centered">
-           <!-- <img src="./static/images/method.png" alt="Method Overview" style="width:100%; height:auto;"> -->
-           <p><em>(Placeholder for Method Diagram)</em></p>
+           <img src="./static/images/bfd_apsipa.drawio-1.png" alt="Method Overview" style="width:100%; height:auto;">
          </div>
       </div>
     </div>
@@ -179,30 +178,47 @@
         We demonstrate Herald's capabilities across various domains including image editing, semantic tagging, and medical triage.
       </p>
     </div>
-    
-    <h3 class="title is-4">BFD Comparison</h3>
-    <div class="content has-text-justified">
-      <p>
-        Comparison of Herald against baseline methods on the BFD dataset.
-      </p>
-    </div>
+
+    <h3 class="title is-4">Knowledge Tagging</h3>
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <div class="content has-text-centered">
-          <img src="../images/bfd_apsipa.png" alt="BFD Comparison" style="width:100%; height:auto;">
-        </div>
+      <div class="column is-half">
+        <h4 class="title is-5">Non-Medical</h4>
+        <img src="./static/images/nonmedical_kt.png" alt="Knowledge Tagging (Non-Medical)" style="width:100%; height:auto;">
+      </div>
+      <div class="column is-half">
+        <h4 class="title is-5">Medical</h4>
+        <img src="./static/images/medical_kt-1.png" alt="Knowledge Tagging (Medical)" style="width:100%; height:auto;">
       </div>
     </div>
 
-    <h3 class="title is-4">Qualitative Results</h3>
+    <br>
+
+    <h3 class="title is-4">Image Editing</h3>
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <div class="content has-text-centered">
-          <!-- <img src="./static/images/qualitative_results.png" alt="Qualitative Results" style="width:100%; height:auto;"> -->
-          <p><em>(Placeholder for Qualitative Results)</em></p>
-        </div>
+      <div class="column is-half">
+        <h4 class="title is-5">Non-Medical</h4>
+        <img src="./static/images/nonmedical_ie-1.png" alt="Image Editing (Non-Medical)" style="width:100%; height:auto;">
+      </div>
+      <div class="column is-half">
+        <h4 class="title is-5">Medical</h4>
+        <img src="./static/images/medical_ie.png" alt="Image Editing (Medical)" style="width:100%; height:auto;">
       </div>
     </div>
+
+    <br>
+
+    <h3 class="title is-4">Medical Specific Tasks</h3>
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h4 class="title is-5">VQA</h4>
+        <img src="./static/images/medical_vqa.png" alt="Medical VQA" style="width:100%; height:auto;">
+      </div>
+      <div class="column is-half">
+        <h4 class="title is-5">Image Pair Reasoning</h4>
+        <img src="./static/images/medical_ipr-1.png" alt="Image Pair Reasoning" style="width:100%; height:auto;">
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -212,7 +228,7 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <div class="content has-text-centered">
-          <embed src="./static/paper.pdf" type="application/pdf" width="100%" height="800px">
+          <iframe src="./static/paper.pdf" style="width:100%; height:800px; border:none;"></iframe>
         </div>
       </div>
     </div>
@@ -226,7 +242,7 @@
     <pre><code>@article{tan2025herald,
   author    = {Tan, Guan-Yuan and Pal, Arghya and Rajanala, Sailaja and Phan, Raphaël C.-W. and Ting, Chee-Ming},
   title     = {Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training},
-  journal   = {APSIPA ASC},
+  conference   = {APSIPA ASC},
   year      = {2025},
 }</code></pre>
   </div>
