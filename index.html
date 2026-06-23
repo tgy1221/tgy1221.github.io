@@ -50,6 +50,56 @@
           
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- MoBa-GS — ECCV 2026                                          -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <tr onmouseout="mobags_stop()" onmouseover="mobags_start()" style="background-color:#fffbe6;">
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='mobags_image'>
+            <img src='images/mobags2.png' width=100%>
+          </div>
+          <img src='images/mobags.png' width=100%>
+        </div>
+        <script type="text/javascript">
+          function mobags_start() {
+            document.getElementById('mobags_image').style.opacity = "1";
+          }
+          function mobags_stop() {
+            document.getElementById('mobags_image').style.opacity = "0";
+          }
+          mobags_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="mobags/index.html">
+          <span class="papertitle">MoBa-GS: Learning a Spatially-Varying Motion Basis over a Dynamic Canonical Space for 4D Reconstruction</span>
+        </a>
+        <br>
+        <strong>Guan Yuan Tan</strong>,
+        <a href="https://openreview.net/profile?id=~Arghya_Pal1">Arghya Pal</a>,
+        <a href="https://openreview.net/profile?id=~Sailaja_Rajanala1">Sailaja Rajanala</a>,
+        <a href="https://openreview.net/profile?id=~Rapha%C3%ABl_C-W_Phan1">Raphaël C-W Phan</a>,
+        <a href="https://openreview.net/profile?id=~Chee-Ming_Ting1">Chee-Ming Ting</a>
+        <br>
+        <em>ECCV 2026</em>
+        <br>
+        <a href="mobags/index.html">project page</a>
+        /
+        <a href="#">paper</a>
+        /
+        <a href="#">arXiv</a>
+        /
+        <a href="#">code</a>
+        <p>
+          A spatially-factorized motion field that decouples geometry from non-rigid dynamics via a learnable, per-point kinematic subspace. Enables real-time rendering (&gt;163&nbsp;FPS), compact storage (~11&nbsp;MB), and fast training (~18&nbsp;min) with no SfM initialization required.
+        </p>
+      </td>
+    </tr>
+
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- FLAG-4D — AAAI 2026                                          -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
     <tr>
       <td style="padding:20px;width:25%;vertical-align:middle">
         <div class="one">
@@ -58,19 +108,18 @@
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
         <a href="https://tgy1221.github.io/flag4d/index.html">
-			<span class="papertitle">FLAG-4D: Flow Guided Local-global Dual-deformation Model for 4D Reconstruction
-</span>
+          <span class="papertitle">FLAG-4D: Flow Guided Local-global Dual-deformation Model for 4D Reconstruction</span>
         </a>
         <br>
-				<strong>Guan Yuan Tan</strong>, 
-				<a href="#">Ngoc Tuan Vu</a>,
-				<a href="#">Arghya Pal</a>,
-				<a href="#">Sailaja Rajanala</a>,
+        <strong>Guan Yuan Tan</strong>,
+        <a href="#">Ngoc Tuan Vu</a>,
+        <a href="#">Arghya Pal</a>,
+        <a href="#">Sailaja Rajanala</a>,
         <a href="#">Raphael CW Phan</a>,
         <a href="#">Mettu Srinivas</a>,
         <a href="#">Chee-Ming Ting</a>
-				<br>
-        <em>AAAI 2026</em> (Accepted)
+        <br>
+        <em>AAAI 2026</em>
         <br>
         <a href="https://drive.google.com/file/d/1X4QHqP8LeVtCzYdzjl5Ctnf0og1mjjRz/view?usp=sharing">paper</a>
         /
@@ -78,31 +127,14 @@
         /
         <a href="flag4d/index.html">project page</a>
         <p>
-				Introduces a dual-network architecture that decouples local fine-grained deformation from global motion dynamics using optical flow guidance. This approach resolves the conflict between detail preservation and temporal coherence in dynamic scene reconstruction.
+          Introduces a dual-network architecture that decouples local fine-grained deformation from global motion dynamics using optical flow guidance. This approach resolves the conflict between detail preservation and temporal coherence in dynamic scene reconstruction.
         </p>
       </td>
     </tr>
 
-    <tr>
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <img src='images/wacv2.png' width=100%>
-        </div>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-			<span class="papertitle">Learning a Spatially-Varying Motion Basis for 4D Reconstruction
-</span>
-        <br>
-				<strong>Guan Yuan Tan</strong>, et al.
-				<br>
-        <em>Under Review</em>
-        <br>
-        <p>
-				A framework that factorizes complex non-rigid motion into a learnable, spatially-varying basis set. This disentanglement of geometry and motion enables real-time rendering (<strong>>160 FPS</strong>) and extremely fast training (<18 mins) while maintaining high fidelity.
-        </p>
-      </td>
-    </tr>
-
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- Herald — APSIPA 2025                                         -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
     <tr>
       <td style="padding:20px;width:25%;vertical-align:middle">
         <div class="one">
@@ -111,16 +143,15 @@
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
         <a href="herald/index.html">
-			<span class="papertitle">Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training
-</span>
+          <span class="papertitle">Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training</span>
         </a>
         <br>
-				<strong>Guan-Yuan Tan</strong>, 
-				<a href="#">Arghya Pal</a>,
-				<a href="#">Sailaja Rajanala</a>,
+        <strong>Guan-Yuan Tan</strong>,
+        <a href="#">Arghya Pal</a>,
+        <a href="#">Sailaja Rajanala</a>,
         <a href="#">Raphaël C.-W. Phan</a>,
         <a href="#">Chee-Ming Ting</a>
-				<br>
+        <br>
         <em>APSIPA ASC 2025</em>
         <br>
         <a href="herald/index.html">project page</a>
@@ -129,11 +160,14 @@
         /
         <a href="https://doi.org/10.1109/APSIPAASC65261.2025.11249019">paper</a>
         <p>
-				A mixture-of-experts framework that orchestrates open-source LLMs to generate executable Python code for complex visual tasks. Herald achieves SOTA accuracy on various benchmarks without any model training or fine-tuning.
+          A mixture-of-experts framework that orchestrates open-source LLMs to generate executable Python code for complex visual tasks. Herald achieves SOTA accuracy on various benchmarks without any model training or fine-tuning.
         </p>
       </td>
     </tr>
 
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- Parkinson's — CBM 2025                                       -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
     <tr>
       <td style="padding:20px;width:25%;vertical-align:middle">
         <div class="one">
@@ -142,21 +176,20 @@
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
         <a href="https://doi.org/10.1016/j.compbiomed.2025.109814">
-			<span class="papertitle">Parkinson's disease tremor prediction towards real-time suppression
-</span>
+          <span class="papertitle">Parkinson's disease tremor prediction towards real-time suppression</span>
         </a>
         <br>
-				<strong>Guan Yuan Tan</strong>, 
-				<a href="#">A.S.M. Bakibillah</a>,
-				<a href="#">Ping Yi Chan</a>,
+        <strong>Guan Yuan Tan</strong>,
+        <a href="#">A.S.M. Bakibillah</a>,
+        <a href="#">Ping Yi Chan</a>,
         <a href="#">Chee Pin Tan</a>,
         <a href="#">Surya Nurzaman</a>
-				<br>
+        <br>
         <em>Computers in Biology and Medicine</em>, 2025
         <br>
         <a href="https://doi.org/10.1016/j.compbiomed.2025.109814">paper</a>
         <p>
-				Proposes a self-attention deep temporal convolutional network (SADTCN) to predict non-linear tremor signals, enabling accurate, real-time active suppression for Parkinson's patients.
+          Proposes a self-attention deep temporal convolutional network (SADTCN) to predict non-linear tremor signals, enabling accurate, real-time active suppression for Parkinson's patients.
         </p>
       </td>
     </tr>

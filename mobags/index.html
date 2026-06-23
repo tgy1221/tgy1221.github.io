@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="MoBa-GS: Learning a Spatially-Varying Motion Basis over a Dynamic Canonical Space for 4D Reconstruction">
+  <meta name="keywords" content="4D Reconstruction, Gaussian Splatting, Motion Basis, Dynamic Scenes, ECCV 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoBa-GS: Learning a Spatially-Varying Motion Basis over a Dynamic Canonical Space for 4D Reconstruction</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    /* ── Base ────────────────────────────────── */
+    body { font-family: 'Noto Sans', sans-serif; }
+
+    /* ── Navbar ──────────────────────────────── */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* ── Hero ────────────────────────────────── */
+    .publication-header {
+      background: linear-gradient(150deg, #0f0c29 0%, #302b63 55%, #24243e 100%);
+      padding: 3.5rem 0 2.5rem;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .publication-authors { color: rgba(255,255,255,0.88); }
+
+    .author-block a {
+      color: #f5c518;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .author-block a:hover { text-decoration: underline; }
+
+    .venue-badge {
+      display: inline-block;
+      background: #f5c518;
+      color: #1a1a2e;
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.3rem 1.1rem;
+      border-radius: 20px;
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .publication-links .button {
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+    }
+
+    /* ── Stat bar ────────────────────────────── */
+    .stats-section {
+      background: #fafafa;
+      border-top: 3px solid #302b63;
+      padding: 2rem 0;
+    }
+    .stat-box { text-align: center; padding: 1rem 1.5rem; }
+    .stat-number {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #302b63;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.83rem;
+      color: #555;
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+    .stat-up   { color: #16a34a; }
+    .stat-down { color: #16a34a; }
+    .stat-divider { border-left: 1px solid #e0e0e0; }
+
+    /* ── Teaser ──────────────────────────────── */
+    .teaser-section { padding: 3rem 0 2rem; background: #fff; }
+    .teaser-img {
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      width: 100%;
+    }
+    .teaser-caption {
+      font-size: 0.93rem;
+      color: #444;
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── Section headers ─────────────────────── */
+    .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 3px solid #f5c518;
+      padding-bottom: 0.4rem;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Abstract ────────────────────────────── */
+    .abstract-section { background: #fff; padding: 3rem 0; }
+    .abstract-text {
+      font-size: 1.04rem;
+      line-height: 1.78;
+      color: #333;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+
+    /* ── Framework ───────────────────────────── */
+    .framework-section { background: #f7f7fb; padding: 3rem 0; }
+    .framework-img {
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      width: 100%;
+    }
+    .figure-caption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.9rem;
+      line-height: 1.65;
+    }
+
+    /* ── Video comparisons ───────────────────── */
+    .video-section { background: #fff; padding: 3rem 0; }
+    .video-compare-block {
+      margin-bottom: 2.5rem;
+      background: #f5f5fa;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .video-scene-label {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #302b63;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .video-scene-label::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.15em;
+      background: #f5c518;
+      border-radius: 2px;
+    }
+    .method-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #fff;
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 0.45rem;
+      display: inline-block;
+    }
+    .label-ours  { background: #302b63; }
+    .label-scgs  { background: #4b5563; }
+    .label-defgs { background: #6b7280; }
+    .label-4dgs  { background: #9ca3af; }
+    .label-dynmf { background: #6b7280; }
+    .label-spatem{ background: #9ca3af; color: #1a1a1a; }
+
+    video { width: 100%; border-radius: 6px; background: #000; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .video-cell { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    /* ── Results ─────────────────────────────── */
+    .results-section { background: #f7f7fb; padding: 3rem 0; }
+    .results-table-img {
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+      width: 100%;
+    }
+
+    /* ── Qualitative ─────────────────────────── */
+    .qual-section { background: #fff; padding: 3rem 0; }
+
+    /* ── Ablation ────────────────────────────── */
+    .ablation-section { background: #f7f7fb; padding: 3rem 0; }
+
+    /* ── BibTeX ──────────────────────────────── */
+    .bibtex-section { background: #1a1a2e; padding: 3rem 0; }
+    .bibtex-section .section-title {
+      color: #f5c518;
+      border-bottom-color: #302b63;
+    }
+    pre.bibtex-block {
+      background: #0d0d1a;
+      color: #c9f0ff;
+      border-radius: 8px;
+      padding: 1.6rem;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      overflow-x: auto;
+      border: 1px solid #302b63;
+    }
+
+    /* ── Footer ──────────────────────────────── */
+    footer.footer { background: #111; padding: 2rem; }
+    footer.footer p, footer.footer a { color: #aaa; font-size: 0.88rem; }
+    footer.footer a:hover { color: #f5c518; }
+
+    /* ── Media placeholder ───────────────────── */
+    .media-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #e8e8f4 0%, #d8d8ec 100%);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #7070aa;
+      font-size: 0.82rem;
+      border: 2px dashed #b8b8d8;
+      text-align: center;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    .media-placeholder .ph-icon { font-size: 1.8rem; opacity: 0.45; }
+
+    @media (max-width: 768px) {
+      .publication-title { font-size: 1.4rem; }
+      .stat-number { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  NAVBAR                                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://tgy1221.github.io/" style="font-weight:600; color:#302b63;">
+        ← Tan Guan Yuan
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  HEADER / HERO                           ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="publication-header">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10 has-text-centered">
+
+        <div class="venue-badge">ECCV 2026</div>
+
+        <h1 class="publication-title">
+          MoBa-GS: Learning a Spatially-Varying Motion Basis<br>
+          over a Dynamic Canonical Space for 4D Reconstruction
+        </h1>
+
+        <div class="is-size-5 publication-authors" style="margin-top:1.2rem;">
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Guan_Yuan_Tan1">Guan Yuan Tan</a><sup>1</sup>,&nbsp;
+          </span>
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Arghya_Pal1">Arghya Pal</a><sup>1</sup>,&nbsp;
+          </span>
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Sailaja_Rajanala1">Sailaja Rajanala</a><sup>1</sup>,&nbsp;
+          </span>
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Rapha%C3%ABl_C-W_Phan1">Raphaël C-W Phan</a><sup>1</sup>,&nbsp;
+          </span>
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Chee-Ming_Ting1">Chee-Ming Ting</a><sup>1</sup>
+          </span>
+        </div>
+
+        <div class="is-size-6 publication-authors" style="margin-top:0.6rem; color:rgba(255,255,255,0.65);">
+          <span><sup>1</sup>Monash University</span>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="publication-links" style="margin-top:1.6rem;">
+          <div class="buttons is-centered">
+            <a href="#" class="button is-dark is-rounded">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Paper</span>
+            </a>
+            <a href="#" class="button is-dark is-rounded">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+            <a href="#" class="button is-dark is-rounded">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+            <a href="#" class="button is-dark is-rounded">
+              <span class="icon"><i class="fas fa-video"></i></span>
+              <span>Video</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  STAT HIGHLIGHTS                         ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+
+      <div class="column is-2 stat-box">
+        <div class="stat-number">
+          <span class="stat-up">~</span>163
+          <span style="font-size:1.3rem;">FPS</span>
+        </div>
+        <div class="stat-label">Real-time rendering<br>(time-invariant caching)</div>
+      </div>
+
+      <div class="column is-2 stat-box stat-divider">
+        <div class="stat-number">
+          <span class="stat-down">~</span>18
+          <span style="font-size:1.3rem;">min</span>
+        </div>
+        <div class="stat-label">Training time<br>(order-of-magnitude speedup)</div>
+      </div>
+
+      <div class="column is-2 stat-box stat-divider">
+        <div class="stat-number">
+          <span class="stat-down">~</span>11
+          <span style="font-size:1.3rem;">MB</span>
+        </div>
+        <div class="stat-label">Storage footprint<br>(compact representation)</div>
+      </div>
+
+      <div class="column is-2 stat-box stat-divider">
+        <div class="stat-number" style="font-size:1.7rem; padding-top:0.3rem;">
+          SfM-Free
+        </div>
+        <div class="stat-label">Random initialization<br>no COLMAP required</div>
+      </div>
+
+      <div class="column is-2 stat-box stat-divider">
+        <div class="stat-number" style="font-size:1.5rem; padding-top:0.2rem;">
+          SOTA<br><span style="font-size:1rem; color:#555;">Fidelity</span>
+        </div>
+        <div class="stat-label">Surpasses prior art on<br>D-NeRF &amp; NeRF-DS</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  TEASER VIDEO / IMAGE                    ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="teaser-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10">
+
+        <!--
+          REPLACE THIS BLOCK with your teaser.
+          Options:
+            <video autoplay muted loop playsinline src="static/videos/teaser.mp4" class="teaser-img"></video>
+            <img src="static/images/teaser.jpg" class="teaser-img" alt="MoBa-GS teaser">
+        -->
+        <div class="media-placeholder" style="aspect-ratio:21/8;">
+          <i class="fas fa-photo-film ph-icon"></i>
+          <strong>Teaser Video or Image</strong>
+          <span style="opacity:0.7;">→ static/videos/teaser.mp4 &nbsp;or&nbsp; static/images/teaser.jpg</span>
+        </div>
+
+        <p class="teaser-caption has-text-centered">
+          <strong>MoBa-GS</strong> faithfully captures complex non-rigid dynamics by introducing
+          a structural inversion: a low-frequency <em>dynamic canonical space</em> that models
+          coarse scene motion, coupled with a <em>Spatially-Varying Motion Basis</em> that
+          decomposes local kinematics per Gaussian. Time-invariant caching yields real-time
+          rendering at &gt;163&nbsp;FPS with only ~11&nbsp;MB storage and ~18&nbsp;min training —
+          all without SfM initialization.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  ABSTRACT                                ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="abstract-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-9 has-text-centered">
+
+        <h2 class="section-title">Abstract</h2>
+
+        <p class="abstract-text">
+          Faithfully capturing the intricate relationship between motion and geometry in dynamic
+          scenes is essential for 4D reconstruction. Recent state-of-the-art methods rely on
+          monolithic deformation networks or global time-basis factorizations that struggle to
+          represent complex, non-rigid topological changes. We propose <strong>MoBa-GS</strong>,
+          a framework that resolves this entanglement by introducing a structural inversion: a
+          spatially-factorized motion field coupled with adaptive geometric optimization. First,
+          our model learns a <em>low-frequency dynamic canonical space</em> to represent coarse
+          scene motion. Next, it decomposes complex, non-rigid motion into a
+          <strong>Spatially-Varying Motion Basis</strong> of local kinematics, predicted from the
+          canonical geometry, which is then linearly combined using dynamic blending weights.
+          This formulation directly acts as an implicit neural scaffold, recovering both geometry
+          and motion from random initialization, thereby removing the dependency on SfM point
+          cloud priors. This design is further augmented with <em>motion-guided densification</em>
+          and <em>positional annealing</em> to reduce geometry overfitting. Extensive experiments
+          show that our framework surpasses prior state-of-the-art methods in reconstruction
+          fidelity. Enabled by time-invariant caching, MoBa-GS requires an order-of-magnitude
+          shorter training time (~18&nbsp;minutes), a compact storage (~11&nbsp;MB), and achieves
+          real-time rendering speeds (~163&nbsp;FPS). Our work establishes a new foundation for
+          high-fidelity, efficient 4D representations without relying on explicit geometric priors.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  METHOD                                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="framework-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-11">
+        <div class="has-text-centered">
+          <h2 class="section-title">Method</h2>
+        </div>
+
+        <!--
+          REPLACE with your pipeline figure:
+          <img src="static/images/framework.jpg" class="framework-img" alt="MoBa-GS pipeline">
+        -->
+        <div class="media-placeholder" style="aspect-ratio:16/7;">
+          <i class="fas fa-project-diagram ph-icon"></i>
+          <strong>Pipeline Overview Figure</strong>
+          <span style="opacity:0.7;">→ static/images/framework.jpg</span>
+        </div>
+
+        <p class="figure-caption">
+          <strong>Figure 1: MoBa-GS Overview.</strong>
+          (<strong>Stage 1</strong>) A low-frequency dynamic canonical space is learned to
+          capture coarse, global scene motion. (<strong>Stage 2</strong>) A Spatially-Varying
+          Motion Basis decomposes the residual non-rigid motion into local kinematic subspaces,
+          one per Gaussian, predicted from the canonical geometry. Dynamic blending weights
+          linearly combine the basis vectors into a full per-Gaussian deformation field.
+          (<strong>Training</strong>) Motion-guided densification and positional annealing
+          progressively refine geometry, removing the need for SfM initialization.
+          At test time, time-invariant feature caching decouples rendering from network
+          evaluation, achieving &gt;163&nbsp;FPS.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  VIDEO COMPARISONS                       ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="video-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-11">
+        <div class="has-text-centered">
+          <h2 class="section-title">Qualitative Comparisons</h2>
+          <p style="color:#666; margin-bottom:2rem; font-size:0.95rem;">
+            Novel view synthesis comparisons on D-NeRF and NeRF-DS datasets.
+          </p>
+        </div>
+
+        <!-- ── D-NeRF: Flame Salmon ── -->
+        <div class="video-compare-block">
+          <div class="video-scene-label">D-NeRF — Flame Salmon</div>
+          <div class="video-grid">
+            <div class="video-cell">
+              <span class="method-label label-ours">MoBa-GS (Ours)</span>
+              <!-- <video autoplay muted loop playsinline src="static/videos/ours_flame_salmon.mp4"></video> -->
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/ours_flame_salmon.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-scgs">SC-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/scgs_flame_salmon.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-defgs">Deformable-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/defgs_flame_salmon.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-4dgs">4D-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/4dgs_flame_salmon.mp4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── D-NeRF: Jumping Jacks ── -->
+        <div class="video-compare-block">
+          <div class="video-scene-label">D-NeRF — Jumping Jacks</div>
+          <div class="video-grid">
+            <div class="video-cell">
+              <span class="method-label label-ours">MoBa-GS (Ours)</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/ours_jumping_jacks.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-scgs">SC-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/scgs_jumping_jacks.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-defgs">Deformable-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/defgs_jumping_jacks.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-4dgs">4D-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/4dgs_jumping_jacks.mp4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── D-NeRF: Hell Warrior ── -->
+        <div class="video-compare-block">
+          <div class="video-scene-label">D-NeRF — Hell Warrior</div>
+          <div class="video-grid">
+            <div class="video-cell">
+              <span class="method-label label-ours">MoBa-GS (Ours)</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/ours_hell_warrior.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-scgs">SC-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/scgs_hell_warrior.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-defgs">Deformable-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/defgs_hell_warrior.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-4dgs">4D-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/4dgs_hell_warrior.mp4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── NeRF-DS ── -->
+        <div class="video-compare-block">
+          <div class="video-scene-label">NeRF-DS — Real-world Scenes</div>
+          <div class="video-grid">
+            <div class="video-cell">
+              <span class="method-label label-ours">MoBa-GS (Ours)</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/ours_nerfds.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-scgs">SC-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/scgs_nerfds.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-dynmf">DynMF</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/dynmf_nerfds.mp4</span></div>
+            </div>
+            <div class="video-cell">
+              <span class="method-label label-4dgs">4D-GS</span>
+              <div class="media-placeholder"><i class="fas fa-film ph-icon"></i><span>static/videos/4dgs_nerfds.mp4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate / add more scene blocks here as needed -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  QUANTITATIVE RESULTS                    ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="results-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-11">
+        <div class="has-text-centered">
+          <h2 class="section-title">Quantitative Results</h2>
+        </div>
+
+        <!-- D-NeRF table -->
+        <p style="font-weight:700; color:#302b63; margin-bottom:0.7rem;">
+          Table 1 — D-NeRF Synthetic Dataset
+        </p>
+        <!--
+          REPLACE:
+          <img src="static/images/table_dnerf.png" class="results-table-img" alt="D-NeRF table">
+        -->
+        <div class="media-placeholder" style="aspect-ratio:16/5;">
+          <i class="fas fa-table ph-icon"></i>
+          <strong>Quantitative table (D-NeRF)</strong>
+          <span style="opacity:0.7;">→ static/images/table_dnerf.png</span>
+        </div>
+        <p class="figure-caption" style="margin-bottom:2rem;">
+          Comparison on D-NeRF synthetic dataset (PSNR / SSIM / LPIPS). MoBa-GS surpasses
+          prior art in reconstruction fidelity while delivering an order-of-magnitude reduction
+          in both training time and storage.
+        </p>
+
+        <!-- NeRF-DS table -->
+        <p style="font-weight:700; color:#302b63; margin-bottom:0.7rem;">
+          Table 2 — NeRF-DS Real-World Dataset
+        </p>
+        <div class="media-placeholder" style="aspect-ratio:16/5;">
+          <i class="fas fa-table ph-icon"></i>
+          <strong>Quantitative table (NeRF-DS)</strong>
+          <span style="opacity:0.7;">→ static/images/table_nerfds.png</span>
+        </div>
+        <p class="figure-caption">
+          Mean comparison across all NeRF-DS scenes. MoBa-GS handles real-world reflective
+          and non-rigid surfaces without SfM priors.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  VISUAL COMPARISONS (images)             ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="qual-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-11">
+        <div class="has-text-centered">
+          <h2 class="section-title">Visual Comparisons</h2>
+        </div>
+
+        <!--
+          REPLACE:
+          <img src="static/images/qual_dnerf.png" class="framework-img" alt="D-NeRF qualitative">
+        -->
+        <div class="media-placeholder" style="aspect-ratio:16/6; margin-bottom:0.9rem;">
+          <i class="fas fa-images ph-icon"></i>
+          <strong>D-NeRF qualitative comparison</strong>
+          <span style="opacity:0.7;">→ static/images/qual_dnerf.png</span>
+        </div>
+        <p class="figure-caption" style="margin-bottom:2rem;">
+          <strong>Figure 2: D-NeRF qualitative results.</strong>
+          MoBa-GS recovers sharper boundaries and reduces floaters in fast-moving regions
+          compared to SC-GS, Deformable-GS, and 4D-GS.
+        </p>
+
+        <div class="media-placeholder" style="aspect-ratio:16/6; margin-bottom:0.9rem;">
+          <i class="fas fa-images ph-icon"></i>
+          <strong>NeRF-DS qualitative comparison</strong>
+          <span style="opacity:0.7;">→ static/images/qual_nerfds.png</span>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 3: NeRF-DS qualitative results.</strong>
+          The Spatially-Varying Motion Basis captures per-region motion heterogeneity on
+          real-world reflective and deformable surfaces with high fidelity.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  ABLATION                                ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="ablation-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-11">
+        <div class="has-text-centered">
+          <h2 class="section-title">Ablation Studies</h2>
+        </div>
+
+        <!--
+          REPLACE:
+          <img src="static/images/ablation.png" class="framework-img" alt="Ablation">
+        -->
+        <div class="media-placeholder" style="aspect-ratio:16/6;">
+          <i class="fas fa-flask ph-icon"></i>
+          <strong>Ablation table / figure</strong>
+          <span style="opacity:0.7;">→ static/images/ablation.png</span>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 4: Ablation studies.</strong>
+          We ablate the dynamic canonical space, the Spatially-Varying Motion Basis,
+          motion-guided densification, and positional annealing. Each component provides
+          measurable, complementary improvements in both fidelity and efficiency.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  BIBTEX                                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="bibtex-section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-9">
+        <div class="has-text-centered">
+          <h2 class="section-title">BibTeX</h2>
+        </div>
+
+<pre class="bibtex-block">@inproceedings{tan2026mobags,
+  author    = {Tan, Guan Yuan and Pal, Arghya and Rajanala, Sailaja
+               and Phan, Rapha{\"{e}}l C-W and Ting, Chee-Ming},
+  title     = {MoBa-GS: Learning a Spatially-Varying Motion Basis
+               over a Dynamic Canonical Space for 4D Reconstruction},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026},
+}</pre>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FOOTER                                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website is licensed under a
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+          Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website template adapted from
+        <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a>.
+        Back to <a href="https://tgy1221.github.io/">Tan Guan Yuan</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
