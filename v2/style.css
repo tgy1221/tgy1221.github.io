@@ -174,8 +174,8 @@ h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.018em; }
 @media (max-width: 880px) { .hero { grid-template-columns: 1fr; gap: 34px; } }
 
 .avatar {
-  width: 96px;
-  height: 96px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 24px;
@@ -291,6 +291,16 @@ h1 {
 }
 .btn:hover { opacity: 0.82; text-decoration: none; }
 
+.avail-mail {
+  display: block;
+  margin-top: 13px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  word-break: break-all;
+}
+.avail-mail:hover { color: var(--accent); text-decoration: none; }
+
 /* ---------- sections ------------------------------------------------ */
 
 section { padding-block: clamp(52px, 8vw, 84px); }
@@ -340,7 +350,7 @@ section + section { border-top: 1px solid var(--rule-soft); }
 
 .pub {
   display: grid;
-  grid-template-columns: 42px 156px minmax(0, 1fr);
+  grid-template-columns: 42px 232px minmax(0, 1fr);
   gap: clamp(16px, 2.6vw, 30px);
   padding-block: 32px;
   border-top: 1px solid var(--rule);
@@ -422,10 +432,10 @@ section + section { border-top: 1px solid var(--rule-soft); }
 }
 .entry:last-child { border-bottom: 1px solid var(--rule); }
 
-.entry-mark { height: 44px; display: flex; align-items: center; }
+.entry-mark { height: 58px; display: flex; align-items: center; }
 .entry-mark img {
   max-width: 100%;
-  max-height: 44px;
+  max-height: 58px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -453,8 +463,8 @@ section + section { border-top: 1px solid var(--rule-soft); }
 
 @media (max-width: 780px) {
   .entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  .entry-mark { height: 32px; justify-content: flex-start; }
-  .entry-mark img { max-height: 32px; max-width: 150px; }
+  .entry-mark { height: 40px; justify-content: flex-start; }
+  .entry-mark img { max-height: 40px; max-width: 160px; }
   .entry-when { padding-top: 0; }
 }
 
