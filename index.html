@@ -1,241 +1,425 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tan Guan Yuan — 4D Vision, Physics, Robotics</title>
 
-    <title>Tan Guan Yuan</title>
+<meta name="author" content="Tan Guan Yuan">
+<meta name="description" content="Tan Guan Yuan is a Visiting Scholar at the Carnegie Mellon Robotics Institute (AirLab) and a PhD candidate at Monash University, working on 4D reconstruction, simulation, and robotics.">
+<link rel="canonical" href="https://tgy1221.github.io/">
+<link rel="icon" href="images/own2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-    <meta name="author" content="Tan Guan Yuan">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="images/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-  </head>
+<script>
+  // set the theme before first paint so there is no flash
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
 
-  <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Tan Guan Yuan
-                </p>
-                <p>I am a 2nd-year PhD candidate at <a href="https://www.monash.edu/">Monash University</a>, focusing on <strong>4D reconstruction</strong> and <strong>physics simulation</strong>. My goal is to build intelligent systems that perceive physical properties and causal rules from visual data, paving the way for cognitive digital twins.
-                </p>
-                <p>
-                   I am currently exploring <strong>research internship</strong> and <strong>visiting researcher</strong> opportunities for <strong>2026</strong>. I welcome collaborations on 3D/4D vision, neural rendering, and physics-informed learning.
-                </p>
-                <p style="text-align:center">
-                  <a href="mailto:tguanyuan@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="https://www.linkedin.com/in/guan-yuan-tan/">LinkedIn</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=dhjq9sMAAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/tgy1221/">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/own2.png"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/own2.png" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Tan Guan Yuan — 4D Vision, Physics, Robotics">
+<meta property="og:description" content="Visiting Scholar, CMU Robotics Institute (AirLab). PhD candidate, Monash University. 4D reconstruction, simulation, robotics.">
+<meta property="og:url" content="https://tgy1221.github.io/">
+<meta property="og:image" content="https://tgy1221.github.io/images/own2.png">
+<meta name="twitter:card" content="summary">
+</head>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Selected Publications</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+<body>
 
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <!-- MoBa-GS — ECCV 2026                                          -->
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <tr onmouseout="mobags_stop()" onmouseover="mobags_start()" style="background-color:#fffbe6;">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='mobags_image'>
-            <img src='images/wacv2.png' width=100%>
-          </div>
-          <img src='images/wacv2.png' width=100%>
-        </div>
-        <script type="text/javascript">
-          function mobags_start() {
-            document.getElementById('mobags_image').style.opacity = "1";
-          }
-          function mobags_stop() {
-            document.getElementById('mobags_image').style.opacity = "0";
-          }
-          mobags_stop()
-        </script>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="mobags/index.html">
-          <span class="papertitle">MoBa-GS: Learning a Spatially-Varying Motion Basis over a Dynamic Canonical Space for 4D Reconstruction</span>
-        </a>
-        <br>
-        <strong>Guan Yuan Tan</strong>,
-        <a href="https://openreview.net/profile?id=~Arghya_Pal1">Arghya Pal</a>,
-        <a href="https://openreview.net/profile?id=~Sailaja_Rajanala1">Sailaja Rajanala</a>,
-        <a href="https://openreview.net/profile?id=~Rapha%C3%ABl_C-W_Phan1">Raphaël C-W Phan</a>,
-        <a href="https://openreview.net/profile?id=~Chee-Ming_Ting1">Chee-Ming Ting</a>
-        <br>
-        <em>ECCV 2026</em>
-        <br>
-        <a href="mobags/index.html">project page</a>
-        /
-        <a href="#">arXiv</a>
-        /
-        <a href="https://github.com/tgy1221/MoBa-GS">code</a>
-        <p>
-          A spatially-factorized motion field that decouples geometry from non-rigid dynamics via a learnable, per-point kinematic subspace. Enables real-time rendering (&gt;163&nbsp;FPS), compact storage (~11&nbsp;MB), and fast training (~18&nbsp;min) with no SfM initialization required.
+<!-- ============================== nav ============================== -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-mark" href="#top">
+      <img src="images/own2.png" alt="">
+      <span>Tan Guan Yuan</span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#education" data-optional>Education</a>
+        <a href="#service" data-optional>Service</a>
+        <a href="mailto:tguanyuan@gmail.com">Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Switch between light and dark theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.4 14.3A8.6 8.6 0 1 1 9.7 3.6a6.9 6.9 0 0 0 10.7 10.7Z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================== hero ============================= -->
+<header class="wrap hero" id="top">
+  <div>
+    <img class="avatar" src="images/own2.png" alt="Tan Guan Yuan">
+
+    <p class="eyebrow">Carnegie Mellon &middot; Monash</p>
+
+    <h1>Tan&nbsp;Guan&nbsp;Yuan</h1>
+
+    <ul class="roles">
+      <li><strong>Visiting Scholar</strong> &middot;
+          <a href="https://theairlab.org/">AirLab</a>, Robotics Institute, Carnegie Mellon University
+          <span class="sub">Host: Prof. <a href="https://www.ri.cmu.edu/ri-faculty/sebastian-scherer/">Sebastian Scherer</a></span></li>
+      <li><strong>PhD Candidate</strong> &middot; Monash University
+          <span class="sub">Third year &middot; graduating 2027</span></li>
+    </ul>
+
+    <p class="lede">
+      I build intelligent systems that perceive physical properties and causal rules
+      from visual data, paving the way for cognitive digital twins.
+    </p>
+
+    <ul class="tags">
+      <li>4D Reconstruction</li>
+      <li>Simulation</li>
+      <li>Robotics</li>
+    </ul>
+
+    <div class="links">
+      <a href="mailto:tguanyuan@gmail.com">Email <span class="arw">&#8599;</span></a>
+      <a href="https://scholar.google.com/citations?user=dhjq9sMAAAAJ&amp;hl=en">Google Scholar <span class="arw">&#8599;</span></a>
+      <a href="https://github.com/tgy1221/">GitHub <span class="arw">&#8599;</span></a>
+      <a href="https://www.linkedin.com/in/guan-yuan-tan/">LinkedIn <span class="arw">&#8599;</span></a>
+    </div>
+  </div>
+
+  <aside class="avail">
+    <div class="avail-title"><span class="dot"></span> Available from 2027</div>
+    <p class="avail-body">
+      Seeking postdoctoral positions, industry research roles, and research internships.
+      Open to collaboration on 4D vision, physics-informed learning, and robotics.
+    </p>
+    <a class="btn" href="mailto:tguanyuan@gmail.com?subject=Hello%20from%20your%20website">Get in touch</a>
+    <a class="avail-mail" href="mailto:tguanyuan@gmail.com">tguanyuan@gmail.com</a>
+  </aside>
+</header>
+
+<!-- ============================ research =========================== -->
+<section class="wrap" id="research">
+  <div class="sec-head">
+    <span class="sec-label">Research</span>
+    <span class="sec-note">From pixels to physics to action</span>
+  </div>
+
+  <div class="grid-3">
+    <div class="topic rise">
+      <span class="num">01</span>
+      <h3>4D Reconstruction</h3>
+      <p>Recovering geometry and motion of dynamic scenes from ordinary video &mdash; in real time, at low memory cost, without SfM initialization.</p>
+    </div>
+    <div class="topic rise">
+      <span class="num">02</span>
+      <h3>Simulation &amp; Physics</h3>
+      <p>Estimating mass, friction, and contact from observation, so a reconstruction can be simulated forward rather than merely replayed.</p>
+    </div>
+    <div class="topic rise">
+      <span class="num">03</span>
+      <h3>Robotics</h3>
+      <p>Perception a robot can act on: predictive digital twins for manipulation, articulated objects, and field autonomy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== publications ========================= -->
+<section class="wrap" id="publications">
+  <div class="sec-head">
+    <span class="sec-label">Selected Publications</span>
+    <span class="sec-note"><a href="https://scholar.google.com/citations?user=dhjq9sMAAAAJ&amp;hl=en">Full list on Scholar &#8599;</a></span>
+  </div>
+
+  <div class="pubs">
+
+    <article class="pub rise">
+      <div class="pub-num">01</div>
+      <div class="pub-thumb"><img src="images/wacv2.png" alt="MoBa-GS"></div>
+      <div>
+        <div class="pub-venue"><b>ECCV 2026</b></div>
+        <h3 class="pub-title"><a href="mobags/index.html">MoBa-GS: Learning a Spatially-Varying Motion Basis over a Dynamic Canonical Space for 4D Reconstruction</a></h3>
+        <p class="pub-authors">
+          <span class="me">Guan Yuan Tan</span>,
+          <a href="https://openreview.net/profile?id=~Arghya_Pal1">Arghya Pal</a>,
+          <a href="https://openreview.net/profile?id=~Sailaja_Rajanala1">Sailaja Rajanala</a>,
+          <a href="https://openreview.net/profile?id=~Rapha%C3%ABl_C-W_Phan1">Raphaël C.-W. Phan</a>,
+          <a href="https://openreview.net/profile?id=~Chee-Ming_Ting1">Chee-Ming Ting</a>
         </p>
-      </td>
-    </tr>
-
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <!-- FLAG-4D — AAAI 2026                                          -->
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <tr>
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <img src='images/aaai.png' width=100%>
-        </div>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://tgy1221.github.io/flag4d/index.html">
-          <span class="papertitle">FLAG-4D: Flow Guided Local-global Dual-deformation Model for 4D Reconstruction</span>
-        </a>
-        <br>
-        <strong>Guan Yuan Tan</strong>,
-        <a href="#">Ngoc Tuan Vu</a>,
-        <a href="#">Arghya Pal</a>,
-        <a href="#">Sailaja Rajanala</a>,
-        <a href="#">Raphael CW Phan</a>,
-        <a href="#">Mettu Srinivas</a>,
-        <a href="#">Chee-Ming Ting</a>
-        <br>
-        <em>AAAI 2026</em>
-        <br>
-        <a href="flag4d/index.html">project page</a>
-        / 
-        <a href="https://github.com/tgy1221/FLAG-4D">code</a>
-        /
-        <a href="https://arxiv.org/abs/2602.08558">arXiv</a>
-        <p>
-          Introduces a dual-network architecture that decouples local fine-grained deformation from global motion dynamics using optical flow guidance. This approach resolves the conflict between detail preservation and temporal coherence in dynamic scene reconstruction.
+        <p class="pub-desc">
+          A spatially-factorized motion field decouples geometry from non-rigid dynamics through a
+          learnable per-point kinematic subspace. Renders above 163&nbsp;FPS, stores in ~11&nbsp;MB,
+          trains in ~18&nbsp;minutes, and needs no SfM initialization.
         </p>
-      </td>
-    </tr>
-
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <!-- Herald — APSIPA 2025                                         -->
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <tr>
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <img src='images/bfd_apsipa.png' width=100%>
+        <div class="pub-links">
+          <a href="mobags/index.html">Project</a>
+          <a href="https://github.com/tgy1221/MoBa-GS">Code</a>
         </div>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="herald/index.html">
-          <span class="papertitle">Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training</span>
-        </a>
-        <br>
-        <strong>Guan-Yuan Tan</strong>,
-        <a href="#">Arghya Pal</a>,
-        <a href="#">Sailaja Rajanala</a>,
-        <a href="#">Raphaël C.-W. Phan</a>,
-        <a href="#">Chee-Ming Ting</a>
-        <br>
-        <em>APSIPA ASC 2025</em>
-        <br>
-        <a href="herald/index.html">project page</a>
-        /
-        <a href="https://github.com/tgy1221/Herald">code</a>
-        /
-        <a href="https://doi.org/10.1109/APSIPAASC65261.2025.11249019">paper</a>
-        <p>
-          A mixture-of-experts framework that orchestrates open-source LLMs to generate executable Python code for complex visual tasks. Herald achieves SOTA accuracy on various benchmarks without any model training or fine-tuning.
-        </p>
-      </td>
-    </tr>
+      </div>
+    </article>
 
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <!-- Parkinson's — CBM 2025                                       -->
-    <!-- ══════════════════════════════════════════════════════════════ -->
-    <tr>
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <img src='images/parkinsons2.png' width=100%>
+    <article class="pub rise">
+      <div class="pub-num">02</div>
+      <div class="pub-thumb"><img src="images/aaai.png" alt="FLAG-4D"></div>
+      <div>
+        <div class="pub-venue"><b>AAAI 2026</b></div>
+        <h3 class="pub-title"><a href="flag4d/index.html">FLAG-4D: Flow-Guided Local-Global Dual-Deformation Model for 4D Reconstruction</a></h3>
+        <p class="pub-authors">
+          <span class="me">Guan Yuan Tan</span>, Ngoc Tuan Vu, Arghya Pal, Sailaja Rajanala,
+          Raphaël C.-W. Phan, Mettu Srinivas, Chee-Ming Ting
+        </p>
+        <p class="pub-desc">
+          A dual-network architecture separates fine-grained local deformation from global motion
+          under optical-flow guidance, resolving the usual trade-off between detail preservation and
+          temporal coherence in dynamic scenes.
+        </p>
+        <div class="pub-links">
+          <a href="flag4d/index.html">Project</a>
+          <a href="https://arxiv.org/abs/2602.08558">arXiv</a>
+          <a href="https://github.com/tgy1221/FLAG-4D">Code</a>
         </div>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://doi.org/10.1016/j.compbiomed.2025.109814">
-          <span class="papertitle">Parkinson's disease tremor prediction towards real-time suppression</span>
-        </a>
-        <br>
-        <strong>Guan Yuan Tan</strong>,
-        <a href="#">A.S.M. Bakibillah</a>,
-        <a href="#">Ping Yi Chan</a>,
-        <a href="#">Chee Pin Tan</a>,
-        <a href="#">Surya Nurzaman</a>
-        <br>
-        <em>Computers in Biology and Medicine</em>, 2025
-        <br>
-        <a href="https://doi.org/10.1016/j.compbiomed.2025.109814">paper</a>
-        <p>
-          Proposes a self-attention deep temporal convolutional network (SADTCN) to predict non-linear tremor signals, enabling accurate, real-time active suppression for Parkinson's patients.
+      </div>
+    </article>
+
+    <article class="pub rise">
+      <div class="pub-num">03</div>
+      <div class="pub-thumb"><img src="images/bfd_apsipa.png" alt="Herald"></div>
+      <div>
+        <div class="pub-venue"><b>APSIPA ASC 2025</b></div>
+        <h3 class="pub-title"><a href="herald/index.html">Herald: Democratizing Compositional Reasoning for Visual Tasks without Any Training</a></h3>
+        <p class="pub-authors">
+          <span class="me">Guan Yuan Tan</span>, Arghya Pal, Sailaja Rajanala,
+          Raphaël C.-W. Phan, Chee-Ming Ting
         </p>
-      </td>
-    </tr>
+        <p class="pub-desc">
+          A mixture-of-experts framework orchestrates open-source LLMs into executable Python for
+          compositional visual tasks, reaching state-of-the-art accuracy with no training or
+          fine-tuning.
+        </p>
+        <div class="pub-links">
+          <a href="herald/index.html">Project</a>
+          <a href="https://doi.org/10.1109/APSIPAASC65261.2025.11249019">Paper</a>
+          <a href="https://github.com/tgy1221/Herald">Code</a>
+        </div>
+      </div>
+    </article>
 
-          </tbody></table>
+    <article class="pub rise">
+      <div class="pub-num">04</div>
+      <div class="pub-thumb"><img src="images/parkinsons2.png" alt="Parkinson's tremor prediction"></div>
+      <div>
+        <div class="pub-venue">Computers in Biology and Medicine &middot; <b>2025</b></div>
+        <h3 class="pub-title"><a href="https://doi.org/10.1016/j.compbiomed.2025.109814">Parkinson's Disease Tremor Prediction towards Real-Time Suppression</a></h3>
+        <p class="pub-authors">
+          <span class="me">Guan Yuan Tan</span>, A.S.M. Bakibillah, Ping Yi Chan,
+          Chee Pin Tan, Surya Nurzaman
+        </p>
+        <p class="pub-desc">
+          A self-attention deep temporal convolutional network predicts non-linear tremor signals
+          far enough ahead for closed-loop active suppression.
+        </p>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1016/j.compbiomed.2025.109814">Paper</a>
+        </div>
+      </div>
+    </article>
 
-          
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-            <tr>
-              <td>
-                <h2>Teaching</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-            
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/monash.png" alt="monash" width="160">
-              </td>
-              <td width="75%" valign="center">
-                <strong>Teaching Assistant</strong>, Monash University
-                <br>
-                <ul>
-                    <li>FIT5215: Deep Learning (Masters)</li>
-                    <li>FIT3181: Deep Learning</li>
-                </ul>
-              </td>
-            </tr>
-            
-          </tbody></table>
-          
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:center;">
-                  <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=dcSE29kFdqe5xzY3QM685lpGy7GOZ0ofJy7_36_acYc&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>
-                </p>
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Design: <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a>. 
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-  </body>
+  </div>
+</section>
+
+<!-- ============================ education ========================== -->
+<section class="wrap" id="education">
+  <div class="sec-head">
+    <span class="sec-label">Education</span>
+  </div>
+
+  <div class="entries">
+    <div class="entry rise">
+      <div class="entry-mark"><img class="chip" src="assets/cmu.png" alt="Carnegie Mellon University"></div>
+      <div class="entry-when">Aug 2026 &mdash; Present</div>
+      <div class="entry-body">
+        <h3>Visiting Scholar</h3>
+        <p class="entry-org">Robotics Institute &mdash; <a href="https://theairlab.org/">AirLab</a>, Carnegie Mellon University</p>
+        <p class="entry-note">Host: Prof. <a href="https://www.ri.cmu.edu/ri-faculty/sebastian-scherer/">Sebastian Scherer</a></p>
+      </div>
+    </div>
+
+    <div class="entry rise">
+      <div class="entry-mark"><img class="tone-mono" src="images/monash.png" alt="Monash University"></div>
+      <div class="entry-when">Nov 2023 &mdash; Present</div>
+      <div class="entry-body">
+        <h3>PhD Candidate</h3>
+        <p class="entry-org">Monash University</p>
+        <p class="entry-note">4D reconstruction, simulation, and robotics</p>
+      </div>
+    </div>
+
+    <div class="entry rise">
+      <div class="entry-mark"><img class="tone-mono" src="images/monash.png" alt="Monash University"></div>
+      <div class="entry-when">Jul 2019 &mdash; Jul 2023</div>
+      <div class="entry-body">
+        <h3>B.Eng. (Honours), Robotics Engineering</h3>
+        <p class="entry-org">Monash University</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== experience ========================== -->
+<section class="wrap" id="experience">
+  <div class="sec-head">
+    <span class="sec-label">Industry Experience</span>
+  </div>
+
+  <div class="entries">
+    <div class="entry rise">
+      <div class="entry-mark"><img src="assets/intel.svg" alt="Intel Corporation"></div>
+      <div class="entry-when">Internship</div>
+      <div class="entry-body">
+        <h3>System-on-Chip Design Intern</h3>
+        <p class="entry-org">Intel Corporation</p>
+        <p class="entry-note">Design Enablement Group &mdash; DTCO, APR team</p>
+      </div>
+    </div>
+
+    <div class="entry rise">
+      <div class="entry-mark"><img class="tone-flat" src="assets/vitrox.svg" alt="ViTrox Corporation Berhad"></div>
+      <div class="entry-when">Internship</div>
+      <div class="entry-body">
+        <h3>Research &amp; Development (AI) Intern</h3>
+        <p class="entry-org">ViTrox Corporation Berhad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ teaching =========================== -->
+<section class="wrap" id="teaching">
+  <div class="sec-head">
+    <span class="sec-label">Teaching</span>
+    <span class="sec-note">Teaching Assistant &middot; Monash University</span>
+  </div>
+
+  <div class="units rise">
+    <div class="unit"><code>FIT5215</code><span>Deep Learning</span><span class="lvl">Postgraduate</span></div>
+    <div class="unit"><code>FIT5222</code><span>Planning and Automated Reasoning</span><span class="lvl">Postgraduate</span></div>
+    <div class="unit"><code>FIT5217</code><span>Natural Language Processing</span><span class="lvl">Postgraduate</span></div>
+    <div class="unit"><code>FIT5216</code><span>Modelling Discrete Optimization Problems</span><span class="lvl">Postgraduate</span></div>
+    <div class="unit"><code>FIT3181</code><span>Deep Learning</span><span class="lvl">Undergraduate</span></div>
+  </div>
+</section>
+
+<!-- ============================ service ============================ -->
+<section class="wrap" id="service">
+  <div class="sec-head">
+    <span class="sec-label">Academic Service</span>
+    <span class="sec-note">Reviewer</span>
+  </div>
+
+  <div class="service">
+    <div class="svc rise">
+      <span class="svc-label">Conferences</span>
+      <ul>
+        <li>CVPR &mdash; IEEE/CVF Conference on Computer Vision and Pattern Recognition</li>
+        <li>ECCV &mdash; European Conference on Computer Vision</li>
+        <li>ACML &mdash; Asian Conference on Machine Learning</li>
+      </ul>
+    </div>
+    <div class="svc rise">
+      <span class="svc-label">Journals</span>
+      <ul>
+        <li>Machine Learning (Springer)</li>
+        <li>Engineering Applications of Artificial Intelligence (Elsevier)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= footer ============================ -->
+<footer class="wrap">
+  <div class="foot-inner">
+    <div class="foot-links">
+      <a href="mailto:tguanyuan@gmail.com">tguanyuan@gmail.com</a>
+      <a href="https://scholar.google.com/citations?user=dhjq9sMAAAAJ&amp;hl=en">Scholar</a>
+      <a href="https://github.com/tgy1221/">GitHub</a>
+      <a href="https://www.linkedin.com/in/guan-yuan-tan/">LinkedIn</a>
+    </div>
+    <div class="colophon">Pittsburgh, PA &middot; Last updated August 2026</div>
+  </div>
+
+  <div class="visitors">
+    <span class="visitors-label">Visitors</span>
+    <div class="visitors-map">
+      <script type="text/javascript" id="mapmyvisitors"
+        src="https://mapmyvisitors.com/map.js?cl=ffffff&amp;w=a&amp;t=tt&amp;d=dcSE29kFdqe5xzY3QM685lpGy7GOZ0ofJy7_36_acYc&amp;co=2d78ad&amp;ct=ffffff&amp;cmo=3acc3a&amp;cmn=ff5353"></script>
+    </div>
+  </div>
+
+  <!--
+    Optional second analytics source with per-page views, referrers and
+    countries. Create a free site at https://www.goatcounter.com, then
+    replace YOURCODE below and uncomment. No cookies, no consent banner.
+
+  <script data-goatcounter="https://YOURCODE.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  -->
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  var current = function () {
+    return root.dataset.theme || (systemDark.matches ? 'dark' : 'light');
+  };
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+  // follow the OS until the visitor makes an explicit choice
+  systemDark.addEventListener('change', function () {
+    try { if (!localStorage.getItem('theme')) delete root.dataset.theme; } catch (e) {}
+  });
+
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.dataset.stuck = window.scrollY > 4; };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  var items = document.querySelectorAll('.rise');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e, i) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      setTimeout(function () { el.classList.add('in'); }, i * 55);
+      io.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
 </html>
